@@ -55,7 +55,7 @@ This repository contains the code, experiments, and datasets associated with the
 
 ## Experiments
 
-- Comparison of various models (CatBoost, TabPFN, LightGBM, NGBoost, TabNet, HGB, XGBoost, FTTransformer).
+- Comparison of various models ([CatBoost](https://arxiv.org/abs/1810.11363), [TabPFN](https://www.nature.com/articles/s41586-024-08328-6), [LightGBM](https://proceedings.neurips.cc/paper_files/paper/2017/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf), [NGBoost](https://arxiv.org/abs/1910.03225), [TabNet](https://ojs.aaai.org/index.php/AAAI/article/view/16826), [HGBoosting](http://jmlr.org/papers/v12/pedregosa11a.html), [XGBoost](https://dl.acm.org/doi/10.1145/2939672.2939785), [FT-Transformer](https://arxiv.org/abs/2106.11959)).
 - Analysis of model stability to data changes.
 - Results are saved in the `artifacts/` folder.
 
@@ -65,7 +65,13 @@ Experiment results are saved as csv files in the [`artifacts/`](artifacts/) fold
 
 ## Contacts
 
-Author: Anonymous.
+Authors: 
+
+**[Ilyas Varshavskiy](mailto:ilyas.varshavskiy@zypl.ai)¹, [Bonu Boboeva](mailto:bonu@zypl.ai)¹, [Shuhrat Khalilbekov](mailto:shuhrat.khalilbekov@zypl.ai)¹, [Azizjon Azimi](mailto:azizjon@zypl.ai)¹, [Sergey Shulgin](mailto:sergey.shulgin@zypl.ai)¹, [Akhlitdin Nizamitdinov](mailto:akhlitdin@zypl.ai)¹, [Haitz Sáez de Ocáriz Borde](mailto:haitz.saez-de-ocariz-borde17@imperial.ac.uk)<sup>2</sup><sup>,</sup><sup>3</sup>**
+
+Affiliations:
+
+¹ zypl.ai, ² University of Oxford, ³ University of Cambridge
 
 Questions and suggestions: issues or pull requests are welcome!
 
