@@ -67,7 +67,7 @@ Experiment results are saved as csv files in the [`artifacts/`](artifacts/) fold
 
 Authors: 
 
-**[Ilyas Varshavskiy](mailto:ilyas.varshavskiy@zypl.ai)¹, [Bonu Boboeva](mailto:bonu@zypl.ai)¹, [Shuhrat Khalilbekov](mailto:shuhrat.khalilbekov@zypl.ai)¹, [Azizjon Azimi](mailto:azizjon@zypl.ai)¹, [Sergey Shulgin](mailto:sergey.shulgin@zypl.ai)¹, [Akhlitdin Nizamitdinov](mailto:akhlitdin@zypl.ai)¹, [Haitz Sáez de Ocáriz Borde](mailto:haitz.saez-de-ocariz-borde17@imperial.ac.uk)<sup>2</sup><sup>,</sup><sup>3</sup>**
+**[Ilyas Varshavskiy](mailto:ilyas.varshavskiy@zypl.ai)¹, [Bonu Boboeva](mailto:bonu@zypl.ai)¹, [Shuhrat Khalilbekov](mailto:shuhrat.khalilbekov@zypl.ai)¹, [Azizjon Azimi](mailto:azizjon@zypl.ai)¹, [Sergey Shulgin](mailto:sergey.shulgin@zypl.ai)¹, [Akhlitdin Nizamitdinov](mailto:akhlitdin@zypl.ai)¹, [Haitz Sáez de Ocáriz Borde](mailto:chri6704@ox.ac.uk)<sup>2</sup><sup>,</sup><sup>3</sup>**
 
 Affiliations:
 
