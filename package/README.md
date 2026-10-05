@@ -68,6 +68,10 @@ The data used in the paper is available on Hugging Face: [`zyplai/stabilization-
 }
 ```
 
+## Credits
+
+Author: [zypl.ai](https://zypl.ai)
+
 ## License
 
 MIT
