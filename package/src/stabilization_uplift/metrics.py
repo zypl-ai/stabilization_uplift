@@ -84,4 +84,6 @@ def stabilization_uplift(auc_base_A: float,
     score_A = stabilization_score(auc_base_A, auc_shock_A, dist_shift)
     score_B = stabilization_score(auc_base_B, auc_shock_B, dist_shift)
 
-    return float(max(w * (w_B * score_B - w_A * score_A), 0.0))
+    uplift = w * (w_B * score_B - w_A * score_A)
+
+    return float(uplift) if uplift > 0 else 0.0

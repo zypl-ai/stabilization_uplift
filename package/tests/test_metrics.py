@@ -43,7 +43,9 @@ def test_small_uplift_when_b_also_drops():
 
 
 def test_no_uplift_when_b_is_worse():
-    assert stabilization_uplift(0.81, 0.78, 0.80, 0.70, 0.2) == 0.0
+    uplift = stabilization_uplift(0.81, 0.78, 0.80, 0.70, 0.2)
+    assert uplift == 0.0
+    assert math.copysign(1, uplift) == 1  # not -0.0
 
 
 def test_no_uplift_for_identical_models():
