@@ -2,6 +2,7 @@
 
 [![NeurIPS 2025 Workshop](https://img.shields.io/badge/NeurIPS%202025-GenAI%20in%20Finance%20Workshop-blue)](https://openreview.net/forum?id=zfTaFD0B5Z)
 [![arXiv](https://img.shields.io/badge/arXiv-2510.09294-b31b1b)](https://arxiv.org/abs/2510.09294)
+[![PyPI](https://img.shields.io/pypi/v/stabilization-uplift)](https://pypi.org/project/stabilization-uplift/)
 [![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-zyplai%2Fstabilization--uplift-yellow)](https://huggingface.co/datasets/zyplai/stabilization-uplift)
 
 This repository contains the code, experiments, and datasets associated with the paper *"Mitigating Model Drift in Developing Economies Using Synthetic Data and Outliers"*, accepted as a poster at the **[NeurIPS 2025 Workshop on Generative AI in Finance](https://openreview.net/forum?id=zfTaFD0B5Z)** (peer-reviewed on OpenReview).
@@ -9,6 +10,7 @@ This repository contains the code, experiments, and datasets associated with the
 - **Paper (OpenReview):** https://openreview.net/forum?id=zfTaFD0B5Z
 - **Preprint (arXiv):** https://arxiv.org/abs/2510.09294
 - **Dataset (Hugging Face):** https://huggingface.co/datasets/zyplai/stabilization-uplift
+- **Metrics package (PyPI):** https://pypi.org/project/stabilization-uplift/
 
 The research focuses on stabilizing machine learning models in finance against distribution shifts and sudden macroeconomic shocks in developing economies by leveraging synthetic outliers.
 
@@ -23,6 +25,22 @@ The research focuses on stabilizing machine learning models in finance against d
   - Stabilization Uplift (SU) – weight-adjusted metric for comparing two models pre and post-shock.
 
 > **Note:** The paper also reports experiments on proprietary financial datasets from Central Asia and the Caucasus (Tajikistan, Uzbekistan, Kazakhstan, Azerbaijan). These datasets are confidential and are not included in this repository; only the experiments on the open Lending Club dataset can be reproduced from it.
+
+## Metrics Package
+
+The SS and SU metrics are available as a standalone Python package (source in [`package/`](package/)):
+
+```sh
+pip install stabilization-uplift
+```
+
+```python
+from stabilization_uplift import stabilization_score, stabilization_uplift
+
+stabilization_uplift(auc_base_A=0.80, auc_shock_A=0.70, auc_base_B=0.80, auc_shock_B=0.81, dist_shift=0.2)
+```
+
+See the [package README](package/README.md) for details.
 
 ## Key Contributions
 
