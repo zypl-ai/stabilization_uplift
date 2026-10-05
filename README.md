@@ -3,6 +3,7 @@
 [![NeurIPS 2025 Workshop](https://img.shields.io/badge/NeurIPS%202025-GenAI%20in%20Finance%20Workshop-blue)](https://openreview.net/forum?id=zfTaFD0B5Z)
 [![arXiv](https://img.shields.io/badge/arXiv-2510.09294-b31b1b)](https://arxiv.org/abs/2510.09294)
 [![PyPI](https://img.shields.io/pypi/v/stabilization-uplift)](https://pypi.org/project/stabilization-uplift/)
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97%20Space-Calculator-orange)](https://huggingface.co/spaces/zyplai/stabilization-uplift)
 [![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-zyplai%2Fstabilization--uplift-yellow)](https://huggingface.co/datasets/zyplai/stabilization-uplift)
 
 This repository contains the code, experiments, and datasets associated with the paper *"Mitigating Model Drift in Developing Economies Using Synthetic Data and Outliers"*, accepted as a poster at the **[NeurIPS 2025 Workshop on Generative AI in Finance](https://openreview.net/forum?id=zfTaFD0B5Z)** (peer-reviewed on OpenReview).
@@ -11,6 +12,7 @@ This repository contains the code, experiments, and datasets associated with the
 - **Preprint (arXiv):** https://arxiv.org/abs/2510.09294
 - **Dataset (Hugging Face):** https://huggingface.co/datasets/zyplai/stabilization-uplift
 - **Metrics package (PyPI):** [`pip install stabilization-uplift`](https://pypi.org/project/stabilization-uplift/)
+- **Metrics calculator and `evaluate` module (Hugging Face Space):** https://huggingface.co/spaces/zyplai/stabilization-uplift
 
 The research focuses on stabilizing machine learning models in finance against distribution shifts and sudden macroeconomic shocks in developing economies by leveraging synthetic outliers.
 
@@ -41,6 +43,8 @@ from stabilization_uplift import stabilization_score, stabilization_uplift
 
 stabilization_uplift(auc_base_A=0.80, auc_shock_A=0.70, auc_base_B=0.80, auc_shock_B=0.81, dist_shift=0.2)
 ```
+
+The metrics can also be tried in the browser in the [calculator Space](https://huggingface.co/spaces/zyplai/stabilization-uplift), which is also a Hugging Face `evaluate` module: `evaluate.load("zyplai/stabilization-uplift")`.
 
 The [package page on PyPI](https://pypi.org/project/stabilization-uplift/) has an end-to-end example on the Hugging Face dataset, a guide to interpreting SS and SU, and the API reference.
 
