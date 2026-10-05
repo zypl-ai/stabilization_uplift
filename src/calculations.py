@@ -84,9 +84,9 @@ def stabilization_uplift(auc_base_A: float,
       assert 0 != auc_shock_B, "auc_shock_B should be more than 0"
 
       if auc_base_B < 0.5:
-        auc_base_B = 1-auc_base_A
+        auc_base_B = 1-auc_base_B
       if auc_shock_B < 0.5:
-        auc_shock_B = 1-auc_shock_A
+        auc_shock_B = 1-auc_shock_B
 
       k = 100
       w_A = 1 - 1 / (1 + np.exp(k * (auc_shock_A - auc_base_A)))
