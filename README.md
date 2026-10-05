@@ -10,7 +10,7 @@ This repository contains the code, experiments, and datasets associated with the
 - **Paper (OpenReview):** https://openreview.net/forum?id=zfTaFD0B5Z
 - **Preprint (arXiv):** https://arxiv.org/abs/2510.09294
 - **Dataset (Hugging Face):** https://huggingface.co/datasets/zyplai/stabilization-uplift
-- **Metrics package (PyPI):** https://pypi.org/project/stabilization-uplift/
+- **Metrics package (PyPI):** [`pip install stabilization-uplift`](https://pypi.org/project/stabilization-uplift/)
 
 The research focuses on stabilizing machine learning models in finance against distribution shifts and sudden macroeconomic shocks in developing economies by leveraging synthetic outliers.
 
@@ -23,15 +23,17 @@ The research focuses on stabilizing machine learning models in finance against d
 - **Metrics**:
   - Stabilization Score (SS) – measures relative performance drop under shocks normalized by covariate drift.
   - Stabilization Uplift (SU) – weight-adjusted metric for comparing two models pre and post-shock.
+  - Both metrics are published on PyPI as the [`stabilization-uplift`](https://pypi.org/project/stabilization-uplift/) package.
 
 > **Note:** The paper also reports experiments on proprietary financial datasets from Central Asia and the Caucasus (Tajikistan, Uzbekistan, Kazakhstan, Azerbaijan). These datasets are confidential and are not included in this repository; only the experiments on the open Lending Club dataset can be reproduced from it.
 
 ## Metrics Package
 
-The SS and SU metrics are available as a standalone Python package (source in [`package/`](package/)):
+The SS and SU metrics are published on PyPI as the [`stabilization-uplift`](https://pypi.org/project/stabilization-uplift/) package, so you can use them in your own projects without this repository (source in [`package/`](package/)):
 
 ```sh
-pip install stabilization-uplift
+pip install stabilization-uplift            # SS and SU
+pip install "stabilization-uplift[shift]"   # + distribution_shift computed from data
 ```
 
 ```python
@@ -40,7 +42,7 @@ from stabilization_uplift import stabilization_score, stabilization_uplift
 stabilization_uplift(auc_base_A=0.80, auc_shock_A=0.70, auc_base_B=0.80, auc_shock_B=0.81, dist_shift=0.2)
 ```
 
-See the [package README](package/README.md) for details.
+The [package page on PyPI](https://pypi.org/project/stabilization-uplift/) has an end-to-end example on the Hugging Face dataset, a guide to interpreting SS and SU, and the API reference.
 
 ## Key Contributions
 

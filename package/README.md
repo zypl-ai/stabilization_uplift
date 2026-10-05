@@ -46,7 +46,7 @@ stabilization_uplift(auc_base_A, auc_shock_A, auc_base_B, auc_shock_B, dist_shif
 
 ## End-to-end example
 
-The full evaluation protocol from the paper on the open [Lending Club data](https://huggingface.co/datasets/zyplai/stabilization-uplift): train a baseline A on real data and a model B on real plus synthetic data with outliers, evaluate both before and after the 2018 shock, and compare their stability.
+The evaluation protocol from the paper on the open [Lending Club data](https://huggingface.co/datasets/zyplai/stabilization-uplift): train a baseline A on real data and a model B on real plus synthetic data with outliers (4,000 rows of each, as in the paper), evaluate both before and after the 2018 shock, and compare their stability.
 
 ```sh
 pip install "stabilization-uplift[shift]" scikit-learn huggingface_hub
@@ -62,17 +62,19 @@ from stabilization_uplift import distribution_shift, stabilization_score, stabil
 REPO = "hf://datasets/zyplai/stabilization-uplift@v1.0"
 TARGET = "loan_condition_int"
 
-# Synthetic data defines the feature set used in the paper
-synthetic = pd.read_parquet(f"{REPO}/synthetic/outliers_0_05.parquet").drop(columns="issue_d")
+
+def sample(data, n=4000):
+    return data.sample(n=n, random_state=100)
+
+
+# Synthetic data with 5% outliers; its columns define the feature set used in the paper
+synthetic = sample(pd.read_parquet(f"{REPO}/synthetic/outliers_0_05.parquet").drop(columns="issue_d"))
 columns = list(synthetic.columns)
 
-
-def load(split, n=4000):
-    data = pd.read_parquet(f"{REPO}/lending_club/{split}.parquet")
-    return data[columns].sample(n=n, random_state=100)
-
-
-train, base_test, shock_test = load("train"), load("base_test"), load("shock_test")
+train, base_test, shock_test = (
+    sample(pd.read_parquet(f"{REPO}/lending_club/{split}.parquet")[columns])
+    for split in ("train", "base_test", "shock_test")
+)
 
 
 def fit(data):
@@ -107,14 +109,14 @@ Output:
 
 ```
 AUC A: base 0.649, shock 0.658
-AUC B: base 0.650, shock 0.649
+AUC B: base 0.666, shock 0.667
 Distribution shift: 0.073
 SS of A: 0.992
 SS of B: 0.999
-SU of B over A: 0.000
+SU of B over A: 0.437
 ```
 
-This run shows why SU is needed on top of SS. Model B has the higher SS: its AUC barely moved under the shock. But its shock AUC (0.649) is lower than model A's (0.658), so B is not an improvement, and SU is 0. To compare several synthetic datasets, repeat the evaluation for each `synthetic/*` file and compare their SU values.
+Adding synthetic data with 5% outliers made model B both more accurate (higher AUC before and after the shock) and more stable (higher SS), so SU shows a clear uplift of B over A. To find the best proportion of outliers, repeat the evaluation for each `synthetic/*` file and compare their SU values; as the paper notes, the optimal amount varies by dataset and model.
 
 ## How to read the results
 
